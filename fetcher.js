@@ -16,15 +16,11 @@ request(`${args[0]}`, (error, response, body) => {
   // console.log('body:', body); // Print the HTML for the Google homepage.;
   // console.log(response.socket.bytesRead); // this is the uncompressed bytes we get from the site.
   // console.log(response);
-  
-
-
 
   fs.access(args[1], fs, (err) => {
     if (!err) {
       rl.question("The file exists. Overwrite? [Y]/[N]: ", answer => {
         if (answer === 'Y') {
-
           fs.writeFile(`${args[1]}`, body, (err)=> {
             if (err) console.log(err);
             console.log(`Downloaded and saved ${body.length} bytes to ${args[1]}`);
